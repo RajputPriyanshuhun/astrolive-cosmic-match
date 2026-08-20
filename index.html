@@ -226,40 +226,7 @@
 </style>
 </head>
 <body>
-  <!-- Firebase SDK Libraries (डेटाबेस इन्फ्रास्ट्रक्चर) -->
-<script src="https://gstatic.com"></script>
-<script src="https://gstatic.com"></script>
-
-<script>
-  // 1. आपके डेटाबेस का लिंक
-  const firebaseConfig = {
-    databaseURL: "https://console.firebase.google.com/u/0/project/astrolive-match-23a0b/database/astrolive-match-23a0b-default-rtdb/data/~2F"
-  };
-
-  // 2. Firebase को एक्टिव करें
-  firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
-
-  // 3. डेटाबेस में सुरक्षित एंट्री भेजने का फंक्शन
-  function sendToDatabase(name, dob, score) {
-    const newUserId = Date.now(); // यूनिक आईडी के लिए टाइमस्टैम्प
-    database.ref('users/' + newUserId).set({
-      user_name: name,
-      birth_date: dob,
-      match_score: score || 0,
-      timestamp: new Date().toISOString()
-    }).then(() => {
-      console.log("डेटाबेस में डेटा सुरक्षित रूप से सुरक्षित हो गया है!");
-    }).catch((error) => {
-      console.error("डेटाबेस एरर:", error);
-    });
-  }
-
-  // इसे अपने पुराने सबमिट बटन या फॉर्म के फंक्शन के अंदर बस इस तरह कॉल करना है:
-  // sendToDatabase(userName, userDOB, compatibilityScore);
-
-  console.log("Firebase Secure Database Connected Successfully!");
-</script>
+  
 <nav class="topnav">
   <div class="navrow">
     <div class="brand"><span class="dot"></span>AstroLive <small>Cosmic Match &middot; Prototype</small></div>
